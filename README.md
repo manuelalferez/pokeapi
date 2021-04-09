@@ -2,7 +2,7 @@
 
 [Pokeapi](https://pokeapi.co/)
 
-heygioimhere
+
 [React](https://reactjs.org/)
 
 

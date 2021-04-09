@@ -28,7 +28,7 @@ function App() {
     axios
       .get("https://pokeapi.co/api/v2/pokemon/" + pokemon + "")
       .then((res) => {
-        setPokeDesc(res.data.species.url);
+        setPokeDesc(res.data.height);
       });
 
     /*

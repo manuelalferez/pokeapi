@@ -24,10 +24,10 @@ const App = () => {
 
   return (
     <div>
-      <img src={pokeData ? pokeData.sprites.front_default : ""} alt="" />
-      <h1>{pokeData ? pokeData.name : "Press Any Button To Begin"}</h1>
-      <p>{pokeDesc ? pokeDesc.flavor_text_entries[0].flavor_text.replace("\f", " ") : ""}</p>
-      <button
+      <img src={pokeData && pokeData.sprites.front_default} alt="" />
+      <h1>{pokeData && pokeData.name}</h1>
+      <p>{pokeDesc && pokeDesc.flavor_text_entries[0].flavor_text.replace("\f", " ")}</p>
+      {currentNum > 1 && <button
         onClick={() => {
           currentNum--;
           getPokemon(currentNum);
@@ -36,7 +36,7 @@ const App = () => {
         }}
       >
         Previous
-      </button>
+      </button>}
       <button
         onClick={() => {
           currentNum++;

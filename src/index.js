@@ -21,11 +21,11 @@ const App = () => {
   };
 
   let currentNum = pokeNum;
-  console.log(Math.round())
+  console.log(Math.round());
   return (
     <div>
       <img src={pokeData && pokeData.sprites.front_default} alt="" />
-      <h1>{pokeData && pokeData.name}</h1>
+      <h1>{pokeData && pokeData.name.toUpperCase()}</h1>
       <p>
         {pokeDesc &&
           pokeDesc.flavor_text_entries[0].flavor_text.replace("\f", " ")}

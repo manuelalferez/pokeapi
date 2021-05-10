@@ -21,31 +21,46 @@ const App = () => {
   };
 
   let currentNum = pokeNum;
-
+  console.log(Math.round())
   return (
     <div>
       <img src={pokeData && pokeData.sprites.front_default} alt="" />
       <h1>{pokeData && pokeData.name}</h1>
-      <p>{pokeDesc && pokeDesc.flavor_text_entries[0].flavor_text.replace("\f", " ")}</p>
-      {currentNum > 1 && <button
-        onClick={() => {
-          currentNum--;
-          getPokemon(currentNum);
-          setPokeNum(currentNum);
-          getPokeDesc(currentNum);
-        }}
-      >
-        Previous
-      </button>}
+      <p>
+        {pokeDesc &&
+          pokeDesc.flavor_text_entries[0].flavor_text.replace("\f", " ")}
+      </p>
+      {currentNum > 1 && (
+        <button
+          onClick={() => {
+            currentNum--;
+            setPokeNum(currentNum);
+            getPokemon(currentNum);
+            getPokeDesc(currentNum);
+          }}
+        >
+          Previous
+        </button>
+      )}
       <button
         onClick={() => {
           currentNum++;
-          getPokemon(currentNum);
           setPokeNum(currentNum);
+          getPokemon(currentNum);
           getPokeDesc(currentNum);
         }}
       >
         Next
+      </button>
+      <button
+        onClick={() => {
+          currentNum = Math.round(Math.random() * 898);
+          setPokeNum(currentNum);
+          getPokemon(currentNum);
+          getPokeDesc(currentNum);
+        }}
+      >
+        Random
       </button>
     </div>
   );

@@ -1,5 +1,5 @@
 body {
-  background-color: #330040;
+  background-color: #CC0000;
   margin: 0;
   padding: 0;
 }
@@ -7,11 +7,10 @@ body {
 .container {
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
-  margin-top: 5em;
+  margin-top: 6em;
   text-align: center;
-  border: 5px solid #ace758;
-  border-radius: 100%;
-  background-color: #cf30c5;
+  border: 5px solid #000;
+  background-color: #c0c0c0;
   height: 80vh;
 }
 
@@ -20,18 +19,26 @@ img {
 }
 
 button {
-  background-color: #ace758;
+  background-color: #B3A125;
   padding: 15px;
   font-size: 16px;
   margin: 0 auto;
-  color: #330040;
+  color: #FFDE00;
   font-weight: bold;
-  border: 2px solid #330040;
+  border: 2px solid #000;
   width: 8em;   
   height: 4em;
+}
+
+button:hover {
+  background-color: #f48b29;
 }
 
 .side_buttons{
     position: relative;
     top: 40vh;
+}
+
+.prevNext > button{
+  margin: 15px;
 }

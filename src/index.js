@@ -33,7 +33,7 @@ const App = () => {
           {pokeDesc &&
             pokeDesc.flavor_text_entries[0].flavor_text.replace("\f", " ")}
         </p>
-        <div>
+        <div className="prevNext">
           {currentNum > 1 && (
             <button
               onClick={() => {

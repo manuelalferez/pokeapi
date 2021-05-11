@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import "./styles/single.css"
+import "./styles/single.css";
 
 const App = () => {
   const [pokeData, setPokeData] = useState(null);
@@ -24,35 +24,40 @@ const App = () => {
   let currentNum = pokeNum;
   console.log(Math.round());
   return (
-    <div>
-      <img src={pokeData && pokeData.sprites.front_default} alt="" />
-      <h1>{pokeData && pokeData.name.toUpperCase()}</h1>
-      <p>
-        {pokeDesc &&
-          pokeDesc.flavor_text_entries[0].flavor_text.replace("\f", " ")}
-      </p>
-      {currentNum > 1 && (
-        <button
-          onClick={() => {
-            currentNum--;
-            setPokeNum(currentNum);
-            getPokemon(currentNum);
-            getPokeDesc(currentNum);
-          }}
-        >
-          Previous
-        </button>
-      )}
-      <button
-        onClick={() => {
-          currentNum++;
-          setPokeNum(currentNum);
-          getPokemon(currentNum);
-          getPokeDesc(currentNum);
-        }}
-      >
-        Next
-      </button>
+    <div className="container">
+      <button>List</button>
+      <div>
+        <img src={pokeData && pokeData.sprites.front_default} alt="" />
+        <h1>{pokeData && pokeData.name.toUpperCase()}</h1>
+        <p>
+          {pokeDesc &&
+            pokeDesc.flavor_text_entries[0].flavor_text.replace("\f", " ")}
+        </p>
+        <div>
+          {currentNum > 1 && (
+            <button
+              onClick={() => {
+                currentNum--;
+                setPokeNum(currentNum);
+                getPokemon(currentNum);
+                getPokeDesc(currentNum);
+              }}
+            >
+              Previous
+            </button>
+          )}
+          <button
+            onClick={() => {
+              currentNum++;
+              setPokeNum(currentNum);
+              getPokemon(currentNum);
+              getPokeDesc(currentNum);
+            }}
+          >
+            Next
+          </button>
+        </div>
+      </div>
       <button
         onClick={() => {
           currentNum = Math.round(Math.random() * 898);

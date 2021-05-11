@@ -1,4 +1,32 @@
-* {
+body {
+  background-color: #330040;
   margin: 0;
   padding: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin-top: 5em;
+  text-align: center;
+  border: 5px solid #ace758;
+  border-radius: 100%;
+  background-color: #cf30c5;
+  height: 80vh;
+}
+
+img {
+  width: 25%;
+}
+
+button {
+  background-color: #ace758;
+  padding: 15px;
+  font-size: 16px;
+  margin: 0 auto;
+  color: #330040;
+  font-weight: bold;
+  border: 2px solid #330040;
+  width: 8em;
+  height: 4em;
 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
+import "./styles/single.css"
 
 const App = () => {
   const [pokeData, setPokeData] = useState(null);

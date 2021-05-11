@@ -6,7 +6,7 @@ body {
 
 .container {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 1fr 4fr 1fr;
   margin-top: 5em;
   text-align: center;
   border: 5px solid #ace758;
@@ -27,6 +27,11 @@ button {
   color: #330040;
   font-weight: bold;
   border: 2px solid #330040;
-  width: 8em;
+  width: 8em;   
   height: 4em;
+}
+
+.side_buttons{
+    position: relative;
+    top: 40vh;
 }

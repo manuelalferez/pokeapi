@@ -25,7 +25,7 @@ const App = () => {
   console.log(Math.round());
   return (
     <div className="container">
-      <button>List</button>
+      <button className="side_buttons">List</button>
       <div>
         <img src={pokeData && pokeData.sprites.front_default} alt="" />
         <h1>{pokeData && pokeData.name.toUpperCase()}</h1>
@@ -59,6 +59,7 @@ const App = () => {
         </div>
       </div>
       <button
+        className="side_buttons"
         onClick={() => {
           currentNum = Math.round(Math.random() * 898);
           setPokeNum(currentNum);

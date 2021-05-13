@@ -31,7 +31,7 @@ export default function Single() {
   return (
     <div className="container">
       <Link className="side_button" to="/">
-        Home
+        List
       </Link>
       <div>
         <div>

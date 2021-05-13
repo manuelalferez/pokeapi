@@ -7,11 +7,11 @@ function App() {
   return (
     <Router>
       <Switch>
+        <Route exact path="/">
+          <List />
+        </Route>
         <Route path="/single">
           <Single />
-        </Route>
-        <Route path="/list">
-          <List />
         </Route>
       </Switch>
     </Router>

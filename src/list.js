@@ -13,20 +13,28 @@ export default function List() {
     const request = await fetch(currentPageUrl);
     const json = await request.json();
     setPokeList(json);
-    console.log(pokeList.results);
+    console.log(pokeList);
   };
 
-  /*const pokemon = () => {
-        //create div with name and sprite image
-    }
+  const Pokemon = ({ pokemon }) => {
+    return (
+      <div>
+        <h2>{pokemon}</h2>
+      </div>
+    );
+  };
 
-    const mapList = () => {
-        //map through fetchList array with pokemon()
-    }
-    */
+  const MapList = ({ pokeList }) => {
+    const mapList = Object.keys(pokeList).map((pokemon) => (
+      <Pokemon key={pokemon} pokemon={pokemon} />
+    ));
+    return <div>{mapList}</div>;
+  };
+
   return (
-  <div className="container">
+    <div className="container">
       <button onClick={fetchList}>Fetch</button>
-  </div>
+      <MapList pokeList={pokeList} />
+    </div>
   );
 }

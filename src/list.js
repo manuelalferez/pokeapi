@@ -11,10 +11,20 @@ export default function List() {
   const fetchList = async () => {
     const request = await fetch(currentPageUrl);
     const json = await request.json();
+    setNextPageUrl(json.next);
+    setPrevPageUrl(json.previous);
     setPokeList(json.results);
   };
 
   const [pokeList, setPokeList] = useState(fetchList());
+
+  const nextPage = () => {
+    setCurrentPageUrl(nextPageUrl);
+  };
+
+  const prevPage = () => {
+    setCurrentPageUrl(prevPageUrl);
+  };
 
   const Pokemon = ({ pokemon }) => {
     return (
@@ -34,6 +44,8 @@ export default function List() {
   return (
     <div className="container">
       <button onClick={fetchList}>Fetch</button>
+      <button onClick={prevPage}>Previous</button>
+      <button onClick={nextPage}>Next</button>
       <MapList pokeList={pokeList} />
     </div>
   );

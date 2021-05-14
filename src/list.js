@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./styles/list.css";
 
 export default function List() {
-  const [pokeList, setPokeList] = useState([]);
   const [currentPageUrl, setCurrentPageUrl] = useState(
     "https://pokeapi.co/api/v2/pokemon"
   );
@@ -12,9 +11,10 @@ export default function List() {
   const fetchList = async () => {
     const request = await fetch(currentPageUrl);
     const json = await request.json();
-    setPokeList(json);
-    console.log(pokeList);
+    setPokeList(json.results);
   };
+
+  const [pokeList, setPokeList] = useState(fetchList());
 
   const Pokemon = ({ pokemon }) => {
     return (
@@ -25,8 +25,8 @@ export default function List() {
   };
 
   const MapList = ({ pokeList }) => {
-    const mapList = Object.keys(pokeList).map((pokemon) => (
-      <Pokemon key={pokemon} pokemon={pokemon} />
+    const mapList = Object.keys(pokeList).map((i, keyName) => (
+      <Pokemon key={i} pokemon={pokeList[keyName].name} />
     ));
     return <div>{mapList}</div>;
   };

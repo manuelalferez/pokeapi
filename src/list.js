@@ -1,23 +1,32 @@
+import React, { useState } from "react";
 import "./styles/list.css";
 
 export default function List() {
+  const [pokeList, setPokeList] = useState([]);
+  const [currentPageUrl, setCurrentPageUrl] = useState(
+    "https://pokeapi.co/api/v2/pokemon"
+  );
+  const [nextPageUrl, setNextPageUrl] = useState();
+  const [prevPageUrl, setPrevPageUrl] = useState();
 
-    const fetchList () => {
-        //fetch and create array with name and sprite of each pokemon,
-        // return name and sprite
-        //store last pokemon fetched number
-    }
+  const fetchList = async () => {
+    const request = await fetch(currentPageUrl);
+    const json = await request.json();
+    setPokeList(json);
+    console.log(pokeList.results);
+  };
 
-    const pokemon () => {
+  /*const pokemon = () => {
         //create div with name and sprite image
     }
 
-    const mapList () => {
+    const mapList = () => {
         //map through fetchList array with pokemon()
     }
+    */
   return (
-    <div className="container">
-            
-    </div>
+  <div className="container">
+      <button onClick={fetchList}>Fetch</button>
+  </div>
   );
-};
+}

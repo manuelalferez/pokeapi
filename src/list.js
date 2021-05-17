@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles/list.css";
 
 export default function List() {
@@ -7,6 +7,11 @@ export default function List() {
   );
   const [nextPageUrl, setNextPageUrl] = useState();
   const [prevPageUrl, setPrevPageUrl] = useState();
+  const [pokeList, setPokeList] = useState([]);
+
+  useEffect(() => {
+  fetchList();
+  }, []);
 
   const fetchList = async () => {
     const request = await fetch(currentPageUrl);
@@ -16,14 +21,14 @@ export default function List() {
     setPokeList(json.results);
   };
 
-  const [pokeList, setPokeList] = useState(fetchList());
-
   const nextPage = () => {
     setCurrentPageUrl(nextPageUrl);
+    fetchList();
   };
 
   const prevPage = () => {
     setCurrentPageUrl(prevPageUrl);
+    fetchList();
   };
 
   const Pokemon = ({ pokemon }) => {

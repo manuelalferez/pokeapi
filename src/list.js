@@ -38,7 +38,7 @@ export default function List() {
     const mapList = Object.keys(pokeList).map((i, keyName) => (
       <Pokemon key={i} pokemon={pokeList[keyName].name} />
     ));
-    return <div>{mapList}</div>;
+    return <div classname="poke_list">{mapList}</div>;
   };
 
   return (
@@ -46,7 +46,7 @@ export default function List() {
       <button className="side_button" onClick={prevPage}>
         Previous
       </button>
-      <MapList classname="poke_list" pokeList={pokeList} />
+      <MapList pokeList={pokeList} />
       <button className="side_button" onClick={nextPage}>
         Next
       </button>

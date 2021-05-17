@@ -43,10 +43,13 @@ export default function List() {
 
   return (
     <div className="container">
-      <button onClick={fetchList}>Fetch</button>
-      <button onClick={prevPage}>Previous</button>
-      <button onClick={nextPage}>Next</button>
+      <button className="side_button" onClick={prevPage}>
+        Previous
+      </button>
       <MapList pokeList={pokeList} />
+      <button className="side_button" onClick={nextPage}>
+        Next
+      </button>
     </div>
   );
 }

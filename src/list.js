@@ -46,7 +46,7 @@ export default function List() {
       <button className="side_button" onClick={prevPage}>
         Previous
       </button>
-      <MapList pokeList={pokeList} />
+      <MapList classname="poke_list" pokeList={pokeList} />
       <button className="side_button" onClick={nextPage}>
         Next
       </button>

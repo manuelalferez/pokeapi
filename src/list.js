@@ -31,17 +31,18 @@ export default function List() {
     fetchList();
   };
 
-  const Pokemon = ({ pokemon }) => {
+  const Pokemon = ({ pokemon, pokeUrl }) => {
+    const number = pokeUrl.slice(34, -1);
     return (
       <div>
-        <h2>{pokemon}</h2>
+        <h2>{number}: {pokemon}</h2>
       </div>
     );
   };
 
   const MapList = ({ pokeList }) => {
     const mapList = Object.keys(pokeList).map((i, keyName) => (
-      <Pokemon key={i} pokemon={pokeList[keyName].name} />
+      <Pokemon key={i} pokemon={pokeList[keyName].name} pokeUrl={pokeList[keyName].url} />
     ));
     return <div classname="poke_list">{mapList}</div>;
   };

@@ -24,17 +24,7 @@ export default function List() {
   const fetchImg = async (url) => {
     const request = await fetch(url);
     const json = await request.json();
-    return (json.sprites.front_default);
-  };
-
-  const nextPage = () => {
-    setCurrentPageUrl(nextPageUrl);
-    fetchList();
-  };
-
-  const prevPage = () => {
-    setCurrentPageUrl(prevPageUrl);
-    fetchList();
+    return json.sprites.front_default;
   };
 
   const Pokemon = ({ pokemon, pokeUrl }) => {
@@ -62,11 +52,23 @@ export default function List() {
 
   return (
     <div className="container">
-      <button className="side_button" onClick={prevPage}>
+      <button
+        className="side_button"
+        onClick={() => {
+          setCurrentPageUrl(prevPageUrl);
+          fetchList();
+        }}
+      >
         Previous
       </button>
       <MapList pokeList={pokeList} />
-      <button className="side_button" onClick={nextPage}>
+      <button
+        className="side_button"
+        onClick={() => {
+          setCurrentPageUrl(nextPageUrl);
+          fetchList();
+        }}
+      >
         Next
       </button>
     </div>

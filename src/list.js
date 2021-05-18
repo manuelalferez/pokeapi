@@ -35,7 +35,7 @@ export default function List() {
     const number = pokeUrl.slice(34, -1);
     return (
       <div>
-        <h2>{number}: {pokemon}</h2>
+        <h2>{number}: {pokemon.charAt(0).toUpperCase() + pokemon.slice(1)}</h2>
       </div>
     );
   };

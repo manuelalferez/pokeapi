@@ -7,5 +7,4 @@ body {
 .poke_list{
   display: grid;
   grid-template-columns: auto auto auto auto auto;
-  background-color: red;
 }

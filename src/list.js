@@ -44,7 +44,7 @@ export default function List() {
     const mapList = Object.keys(pokeList).map((i, keyName) => (
       <Pokemon key={i} pokemon={pokeList[keyName].name} pokeUrl={pokeList[keyName].url} />
     ));
-    return <div classname="poke_list">{mapList}</div>;
+    return <div className="poke_list">{mapList}</div>;
   };
 
   return (

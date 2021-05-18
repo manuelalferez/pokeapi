@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import "./styles/list.css";
 
 export default function List() {
+  const [pokeList, setPokeList] = useState([]);
   const [currentPageUrl, setCurrentPageUrl] = useState(
     "https://pokeapi.co/api/v2/pokemon"
   );
   const [nextPageUrl, setNextPageUrl] = useState();
   const [prevPageUrl, setPrevPageUrl] = useState();
-  const [pokeList, setPokeList] = useState([]);
 
   useEffect(() => {
-  fetchList();
+    fetchList();
   }, []);
 
   const fetchList = async () => {
@@ -19,6 +19,12 @@ export default function List() {
     setNextPageUrl(json.next);
     setPrevPageUrl(json.previous);
     setPokeList(json.results);
+  };
+
+  const fetchImg = async (url) => {
+    const request = await fetch(url);
+    const json = await request.json();
+    return (json.sprites.front_default);
   };
 
   const nextPage = () => {
@@ -35,14 +41,21 @@ export default function List() {
     const number = pokeUrl.slice(34, -1);
     return (
       <div>
-        <h2>{number}: {pokemon.charAt(0).toUpperCase() + pokemon.slice(1)}</h2>
+        <img src={fetchImg(pokeUrl)} alt=""></img>
+        <h2>
+          {number}: {pokemon.charAt(0).toUpperCase() + pokemon.slice(1)}
+        </h2>
       </div>
     );
   };
 
   const MapList = ({ pokeList }) => {
     const mapList = Object.keys(pokeList).map((i, keyName) => (
-      <Pokemon key={i} pokemon={pokeList[keyName].name} pokeUrl={pokeList[keyName].url} />
+      <Pokemon
+        key={i}
+        pokemon={pokeList[keyName].name}
+        pokeUrl={pokeList[keyName].url}
+      />
     ));
     return <div className="poke_list">{mapList}</div>;
   };

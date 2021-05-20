@@ -1,6 +1,3 @@
 ## Resources
 
-[Pokeapi](https://pokeapi.co/)
-
-
-[React](https://reactjs.org/)
+App fetching data from [Pokeapi.co](https://pokeapi.co/), using [ReactJS](https://reactjs.org/).

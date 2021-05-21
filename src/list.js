@@ -3,18 +3,15 @@ import "./styles/list.css";
 
 export default function List() {
   const [pokeList, setPokeList] = useState([]);
-  const [currentPageUrl, setCurrentPageUrl] = useState(
-    "https://pokeapi.co/api/v2/pokemon"
-  );
   const [nextPageUrl, setNextPageUrl] = useState();
   const [prevPageUrl, setPrevPageUrl] = useState();
 
   useEffect(() => {
-    fetchList();
+    fetchList("https://pokeapi.co/api/v2/pokemon");
   }, []);
 
-  const fetchList = async () => {
-    const request = await fetch(currentPageUrl);
+  const fetchList = async (url) => {
+    const request = await fetch(url);
     const json = await request.json();
     setNextPageUrl(json.next);
     setPrevPageUrl(json.previous);
@@ -55,8 +52,7 @@ export default function List() {
       <button
         className="side_button"
         onClick={() => {
-          setCurrentPageUrl(prevPageUrl);
-          fetchList();
+          fetchList(prevPageUrl);
         }}
       >
         Previous
@@ -65,8 +61,7 @@ export default function List() {
       <button
         className="side_button"
         onClick={() => {
-          setCurrentPageUrl(nextPageUrl);
-          fetchList();
+          fetchList(nextPageUrl);
         }}
       >
         Next

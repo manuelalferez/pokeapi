@@ -1,11 +1,18 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import "./styles/single.css";
 
 export default function Single() {
+  const { number } = useParams();
   const [pokeData, setPokeData] = useState(null);
-  const [pokeNum, setPokeNum] = useState(0);
+  const [pokeNum, setPokeNum] = useState(number);
   const [pokeDesc, setPokeDesc] = useState(null);
+
+  useEffect(() => {
+    fetchData("https://pokeapi.co/api/v2/pokemon" + number);
+  }, []);
+
+  console.log(number);
 
   const getPokeData = async (num) => {
     const request = await fetch("https://pokeapi.co/api/v2/pokemon/" + num);
@@ -59,7 +66,7 @@ export default function Single() {
               fetchData();
             }}
           >
-            {!pokeData ? "Start" : "Next"} &#8194; &#62;
+            Next &#8194; &#62;
           </button>
         </div>
       </div>

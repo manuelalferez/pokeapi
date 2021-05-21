@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./styles/list.css";
 
 export default function List() {
@@ -30,7 +31,9 @@ export default function List() {
       <div>
         <img src={fetchImg(pokeUrl)} alt=""></img>
         <h2>
-          {number}: {pokemon.charAt(0).toUpperCase() + pokemon.slice(1)}
+          <Link to={`/single/${number}`}>
+            {number}: {pokemon.charAt(0).toUpperCase() + pokemon.slice(1)}
+          </Link>
         </h2>
       </div>
     );

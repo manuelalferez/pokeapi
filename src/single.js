@@ -12,8 +12,6 @@ export default function Single() {
     fetchData("https://pokeapi.co/api/v2/pokemon" + number);
   }, []);
 
-  console.log(number);
-
   const getPokeData = async (num) => {
     const request = await fetch("https://pokeapi.co/api/v2/pokemon/" + num);
     const json = await request.json();
@@ -32,6 +30,7 @@ export default function Single() {
     setPokeNum(currentNum);
     getPokeData(currentNum);
     getPokeDesc(currentNum);
+    console.log(currentNum);
   };
 
   let currentNum = pokeNum;

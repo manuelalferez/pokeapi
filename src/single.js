@@ -30,13 +30,12 @@ export default function Single() {
     setPokeNum(currentNum);
     getPokeData(currentNum);
     getPokeDesc(currentNum);
-    console.log(currentNum);
   };
 
   let currentNum = pokeNum;
   return (
     <div className="container">
-      <Link className="side_button" to="/">
+      <Link className="side_button" to={`/list/${currentNum}`}>
         List
       </Link>
       <div>

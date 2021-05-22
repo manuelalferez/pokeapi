@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./styles/list.css";
 
 export default function List() {
+  const { offset } = useParams();
   const [pokeList, setPokeList] = useState([]);
   const [nextPageUrl, setNextPageUrl] = useState();
   const [prevPageUrl, setPrevPageUrl] = useState();
 
   useEffect(() => {
-    fetchList("https://pokeapi.co/api/v2/pokemon");
+    offset
+      ? fetchList(
+          "https://pokeapi.co/api/v2/pokemon?offset=" + offset + "&limit=20"
+        )
+      : fetchList("https://pokeapi.co/api/v2/pokemon");
   }, []);
 
   const fetchList = async (url) => {
@@ -47,7 +52,7 @@ export default function List() {
         pokeUrl={pokeList[keyName].url}
       />
     ));
-    console.log(nextPageUrl)
+    console.log(nextPageUrl);
     return <div className="poke_list">{mapList}</div>;
   };
 

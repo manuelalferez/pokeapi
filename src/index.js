@@ -7,7 +7,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path={"/:offset"} component={List} />
+        <Route exact path={"/list/:offset"} component={List} />
         <Route exact path={"/single/:number"} component={Single} />
       </Switch>
     </Router>

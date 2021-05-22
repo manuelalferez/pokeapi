@@ -52,7 +52,6 @@ export default function List() {
         pokeUrl={pokeList[keyName].url}
       />
     ));
-    console.log(nextPageUrl);
     return <div className="poke_list">{mapList}</div>;
   };
 

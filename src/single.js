@@ -35,7 +35,10 @@ export default function Single() {
   let currentNum = pokeNum;
   return (
     <div className="container">
-      <Link className="side_button" to={`/list/${currentNum}`}>
+      <Link
+        className="side_button"
+        to={`/list/${currentNum - (currentNum % 20)}`}
+      >
         List
       </Link>
       <div>

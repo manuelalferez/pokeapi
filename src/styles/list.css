@@ -8,3 +8,14 @@ body {
   display: grid;
   grid-template-columns: auto auto auto auto auto;
 }
+
+a{
+  font-weight: 550;
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+.listElement > img {
+  width: 100%;
+}

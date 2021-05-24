@@ -14,7 +14,7 @@ body {
   height: 80vh;
 }
 
-img {
+.singleDiv > img {
   width: 25%;
 }
 

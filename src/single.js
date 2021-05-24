@@ -42,7 +42,7 @@ export default function Single() {
         List
       </Link>
       <div>
-        <div>
+        <div className="singleDiv">
           <img src={pokeData && pokeData.sprites.front_default} alt="" />
           <h1>{pokeData && pokeData.name.toUpperCase()}</h1>
           <p>

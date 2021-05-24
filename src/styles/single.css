@@ -39,10 +39,9 @@ button:active {
   transform: translateY(4px);
 }
 
-a {
+.list_button {
   padding-top: 1.5em;
   text-align: center;
-
   font-size: 16px;
   text-decoration: none;
   margin: 0 auto;
@@ -50,6 +49,9 @@ a {
   border: 2px solid #000;
   width: 8em;
   height: 3em;
+  position: relative;
+  background-color: #b3a125;
+  top: 40vh;
 }
 
 a:hover {

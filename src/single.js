@@ -36,7 +36,7 @@ export default function Single() {
   return (
     <div className="container">
       <Link
-        className="side_button"
+        className="list_button"
         to={`/list/${currentNum - (currentNum % 20)}`}
       >
         List

@@ -1,5 +1,5 @@
 body {
-  background-color: #CC0000;
+  background-color: #cc0000;
   margin: 0;
   padding: 0;
 }
@@ -19,13 +19,13 @@ img {
 }
 
 button {
-  background-color: #B3A125;
+  background-color: #b3a125;
   padding: 15px;
   font-size: 16px;
   margin: 0 auto;
   color: #000;
   border: 2px solid #000;
-  width: 8em;   
+  width: 8em;
   height: 4em;
 }
 
@@ -34,12 +34,12 @@ button:hover {
 }
 
 button:active {
-  background-color: #B3A125;
+  background-color: #b3a125;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
 
-a{
+a {
   padding-top: 1.5em;
   text-align: center;
 
@@ -48,7 +48,7 @@ a{
   margin: 0 auto;
   color: #000;
   border: 2px solid #000;
-  width: 8em;   
+  width: 8em;
   height: 3em;
 }
 
@@ -56,12 +56,12 @@ a:hover {
   background-color: #f48b29;
 }
 
-.side_button{
-    position: relative;
-    background-color: #B3A125;
-    top: 40vh;
+.side_button {
+  position: relative;
+  background-color: #b3a125;
+  top: 40vh;
 }
 
-.prevNext > button{
+.prevNext > button {
   margin: 15px;
 }

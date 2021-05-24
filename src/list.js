@@ -34,7 +34,7 @@ export default function List() {
     const number = pokeUrl.slice(34, -1);
     return (
       <div>
-        <img src={fetchImg(pokeUrl)} alt=""></img>
+        <img src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + number + ".png"} alt=""></img>
         <h2>
           <Link to={`/single/${number}`}>
             {number}: {pokemon.charAt(0).toUpperCase() + pokemon.slice(1)}

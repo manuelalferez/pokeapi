@@ -24,17 +24,21 @@ export default function List() {
     setPokeList(json.results);
   };
 
-  
   const Pokemon = ({ pokemon, pokeUrl }) => {
     const number = pokeUrl.slice(34, -1);
     return (
-      <div>
-        <img src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + number + ".png"} alt=""></img>
-        <h2>
+      <div className="listElement">
           <Link to={`/single/${number}`}>
+            <img
+              src={
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
+                number +
+                ".png"
+              }
+              alt=""
+            ></img>
             {number}: {pokemon.charAt(0).toUpperCase() + pokemon.slice(1)}
           </Link>
-        </h2>
       </div>
     );
   };

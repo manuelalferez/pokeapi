@@ -24,12 +24,7 @@ export default function List() {
     setPokeList(json.results);
   };
 
-  const fetchImg = async (url) => {
-    const request = await fetch(url);
-    const json = await request.json();
-    return json.sprites.front_default;
-  };
-
+  
   const Pokemon = ({ pokemon, pokeUrl }) => {
     const number = pokeUrl.slice(34, -1);
     return (

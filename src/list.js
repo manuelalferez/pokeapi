@@ -7,6 +7,7 @@ export default function List() {
   const [pokeList, setPokeList] = useState([]);
   const [nextPageUrl, setNextPageUrl] = useState();
   const [prevPageUrl, setPrevPageUrl] = useState();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     offset
@@ -17,15 +18,22 @@ export default function List() {
   }, []);
 
   const fetchList = async (url) => {
+    setLoading(true);
     const request = await fetch(url);
     const json = await request.json();
     setNextPageUrl(json.next);
     setPrevPageUrl(json.previous);
     setPokeList(json.results);
+    setLoading(false);
   };
 
   const Pokemon = ({ pokemon, pokeUrl }) => {
     const number = pokeUrl.slice(34, -1);
+    if (loading) return (
+      <div className="listElement">
+        <div class="lds-dual-ring"></div>
+      </div>
+    );
     return (
       <div className="listElement">
         <Link to={`/single/${number}`}>

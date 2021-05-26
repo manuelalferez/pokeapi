@@ -29,23 +29,28 @@ export default function List() {
 
   const Pokemon = ({ pokemon, pokeUrl }) => {
     const number = pokeUrl.slice(34, -1);
-    if (loading) return (
-      <div className="listElement">
-        <div class="lds-dual-ring"></div>
-      </div>
-    );
+    if (loading)
+      return (
+        <div className="listElement">
+          <div class="lds-dual-ring"></div>
+        </div>
+      );
     return (
       <div className="listElement">
         <Link to={`/single/${number}`}>
           <div>
-            <img
-              src={
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
-                number +
-                ".png"
-              }
-              alt=""
-            ></img>
+            {loading ? (
+              <div class="lds-dual-ring"></div>
+            ) : (
+              <img
+                src={
+                  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
+                  number +
+                  ".png"
+                }
+                alt={""}
+              ></img>
+            )}
           </div>
           <div>
             {number}: {pokemon.charAt(0).toUpperCase() + pokemon.slice(1)}

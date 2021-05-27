@@ -70,6 +70,9 @@ export default function Single() {
             Next &#8194; &#62;
           </button>
         </div>
+        <form>
+          <input type="text"></input>
+        </form>
       </div>
       <button
         className="side_button"

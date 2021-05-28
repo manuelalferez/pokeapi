@@ -4,6 +4,7 @@ import "./styles/single.css";
 
 export default function Single() {
   const { number } = useParams();
+  const [searchPoke, setSearchPoke] = useState("")
   const [pokeData, setPokeData] = useState(null);
   const [pokeNum, setPokeNum] = useState(number);
   const [pokeDesc, setPokeDesc] = useState(null);
@@ -69,8 +70,15 @@ export default function Single() {
             Next &#8194; &#62;
           </button>
         </div>
-        <form>
-          <button>Search</button>
+        <form onSubmit={console.log(searchPoke)}>
+          <input type="text" onChange={(e) => setSearchPoke(e.nativeEvent.data)}></input>
+          <button
+            onClick={() => {
+              fetchData(searchPoke);
+            }}
+          >
+            Search
+          </button>
         </form>
       </div>
       <button

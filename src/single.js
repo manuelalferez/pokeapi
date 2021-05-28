@@ -9,7 +9,7 @@ export default function Single() {
   const [pokeDesc, setPokeDesc] = useState(null);
 
   useEffect(() => {
-    fetchData("https://pokeapi.co/api/v2/pokemon/" + number);
+    fetchData(number);
   }, []);
 
   const getPokeData = async (num) => {

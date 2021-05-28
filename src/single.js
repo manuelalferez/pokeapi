@@ -9,7 +9,7 @@ export default function Single() {
   const [pokeDesc, setPokeDesc] = useState(null);
 
   useEffect(() => {
-    fetchData("https://pokeapi.co/api/v2/pokemon" + number);
+    fetchData("https://pokeapi.co/api/v2/pokemon/" + number);
   }, []);
 
   const getPokeData = async (num) => {
@@ -26,13 +26,14 @@ export default function Single() {
     setPokeDesc(json);
   };
 
-  const fetchData = () => {
-    setPokeNum(currentNum);
-    getPokeData(currentNum);
-    getPokeDesc(currentNum);
+  const fetchData = (num) => {
+    setPokeNum(num);
+    getPokeData(num);
+    getPokeDesc(num);
   };
 
   let currentNum = pokeNum;
+
   return (
     <div className="container">
       <Link
@@ -54,8 +55,7 @@ export default function Single() {
           {currentNum > 1 && (
             <button
               onClick={() => {
-                currentNum--;
-                fetchData();
+                fetchData(--currentNum);
               }}
             >
               &#60; &#8194; Previous
@@ -63,22 +63,20 @@ export default function Single() {
           )}
           <button
             onClick={() => {
-              currentNum++;
-              fetchData();
+              fetchData(++currentNum);
             }}
           >
             Next &#8194; &#62;
           </button>
         </div>
         <form>
-          <input type="text"></input>
+          <button>Search</button>
         </form>
       </div>
       <button
         className="side_button"
         onClick={() => {
-          currentNum = Math.round(Math.random() * 650);
-          fetchData();
+          fetchData(Math.round(Math.random() * 650));
         }}
       >
         Random

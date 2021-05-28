@@ -9,6 +9,7 @@ function App() {
       <Switch>
        <Route exact path={"/"} component={List} />
         <Route exact path={"/list/:offset"} component={List} />
+        <Route exact path={"/single"} component={Single} />
         <Route exact path={"/single/:number"} component={Single} />
       </Switch>
     </Router>

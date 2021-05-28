@@ -6,7 +6,7 @@ export default function Single() {
   const { number } = useParams();
   const [searchPoke, setSearchPoke] = useState(null)
   const [pokeData, setPokeData] = useState(null);
-  const [pokeNum, setPokeNum] = useState(number);
+  const [pokeNum, setPokeNum] = useState();
   const [pokeDesc, setPokeDesc] = useState(null);
 
   useEffect(() => {
@@ -34,6 +34,9 @@ export default function Single() {
   };
 
   let currentNum = pokeNum;
+
+  //SEARCH BAR WORKS WITH NEXT AND PREVIOUS BUT NOT WITH SEARCH BUTTON
+  //FIX SEARCH BAR
 
   return (
     <div className="container">
@@ -70,11 +73,11 @@ export default function Single() {
             Next &#8194; &#62;
           </button>
         </div>
-        <form onSubmit={console.log(searchPoke)}>
-          <input type="text" onChange={(e) => setSearchPoke(e.nativeEvent.data)}></input>
+        <form onSubmit={console.log(currentNum)}>
+          <input type="text" onChange={(e) => setPokeNum(e.nativeEvent.data)}></input>  
           <button
             onClick={() => {
-              fetchData(searchPoke);
+              fetchData(currentNum);
             }}
           >
             Search

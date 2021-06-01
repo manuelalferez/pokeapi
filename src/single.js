@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./styles/single.css";
 
 export default function Single() {
+  const searchRef = React.createRef();
   const { number } = useParams();
   const [pokeData, setPokeData] = useState(null);
   const [pokeNum, setPokeNum] = useState();
@@ -72,8 +73,8 @@ export default function Single() {
             Next &#8194; &#62;
           </button>
         </div>
-        <form onSubmit={console.log(currentNum)}>
-          <input type="text" onChange={(e) => setPokeNum(e.nativeEvent.data)}></input>  
+        <div>
+          <input type="text" ref={searchRef} />
           <button
             onClick={() => {
               fetchData(currentNum);
@@ -81,7 +82,7 @@ export default function Single() {
           >
             Search
           </button>
-        </form>
+        </div>
       </div>
       <button
         className="side_button"

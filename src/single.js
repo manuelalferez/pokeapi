@@ -77,7 +77,7 @@ export default function Single() {
           <input type="text" ref={searchRef} />
           <button
             onClick={() => {
-              fetchData(currentNum);
+              fetchData(searchRef.current.value);
             }}
           >
             Search

@@ -9,8 +9,6 @@ export default function Single() {
   const [pokeNum, setPokeNum] = useState();
   const [pokeDesc, setPokeDesc] = useState(null);
 
-  //BUGFIX TRY CATCH SEARCH BAR EMPTY OR WRONG
-
   useEffect(() => {
     fetchData(number ? number : "1");
   }, []);
@@ -39,7 +37,8 @@ export default function Single() {
   };
 
   const handleKeyDown = (event) => {
-    if (event.key === "Enter") fetchData(searchRef.current.value);
+    if (event.key === "Enter" && searchRef.current.value)
+      fetchData(searchRef.current.value);
   };
 
   return (
@@ -78,7 +77,7 @@ export default function Single() {
           <input type="text" ref={searchRef} onKeyDown={handleKeyDown} />
           <button
             onClick={() => {
-              fetchData(searchRef.current.value);
+              searchRef.current.value && fetchData(searchRef.current.value);
             }}
           >
             Search

@@ -35,9 +35,6 @@ export default function Single() {
 
   let currentNum = pokeNum;
 
-  //SEARCH BAR WORKS WITH NEXT AND PREVIOUS BUT NOT WITH SEARCH BUTTON
-  //FIX SEARCH BAR
-
   return (
     <div className="container">
       <Link

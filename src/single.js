@@ -4,13 +4,12 @@ import "./styles/single.css";
 
 export default function Single() {
   const { number } = useParams();
-  const [searchPoke, setSearchPoke] = useState(null)
   const [pokeData, setPokeData] = useState(null);
   const [pokeNum, setPokeNum] = useState();
   const [pokeDesc, setPokeDesc] = useState(null);
 
   useEffect(() => {
-    fetchData(searchPoke ? searchPoke : (number ? number : "1"));
+    fetchData(number ? number : "1");
   }, []);
 
   const getPokeData = async (num) => {

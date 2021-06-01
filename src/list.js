@@ -32,7 +32,7 @@ export default function List() {
     if (loading)
       return (
         <div className="listElement">
-          <div class="lds-dual-ring"></div>
+          <div className="lds-dual-ring"></div>
         </div>
       );
     return (
@@ -40,7 +40,7 @@ export default function List() {
         <Link to={`/single/${number}`}>
           <div>
             {loading ? (
-              <div class="lds-dual-ring"></div>
+              <div className="lds-dual-ring"></div>
             ) : (
               <img
                 src={

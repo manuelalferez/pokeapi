@@ -38,6 +38,10 @@ export default function Single() {
     getPokeDesc(num);
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") fetchData(searchRef.current.value);
+  };
+
   let currentNum = pokeNum;
 
   return (
@@ -76,10 +80,9 @@ export default function Single() {
           </button>
         </div>
         <div>
-          <input type="text" ref={searchRef} />
+          <input type="text" ref={searchRef} onKeyDown={handleKeyDown} />
           <button
             onClick={() => {
-              console.log("click");
               fetchData(searchRef.current.value);
             }}
           >

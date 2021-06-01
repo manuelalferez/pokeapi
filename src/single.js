@@ -42,14 +42,9 @@ export default function Single() {
     if (event.key === "Enter") fetchData(searchRef.current.value);
   };
 
-  let currentNum = pokeNum;
-
   return (
     <div className="container">
-      <Link
-        className="list_button"
-        to={`/list/${currentNum - (currentNum % 20)}`}
-      >
+      <Link className="list_button" to={`/list/${pokeNum - (pokeNum % 20)}`}>
         List
       </Link>
       <div>
@@ -65,7 +60,7 @@ export default function Single() {
           {pokeNum > 1 && (
             <button
               onClick={() => {
-                fetchData(--currentNum);
+                fetchData(pokeNum - 1);
               }}
             >
               &#60; &#8194; Previous
@@ -73,7 +68,7 @@ export default function Single() {
           )}
           <button
             onClick={() => {
-              fetchData(++currentNum);
+              fetchData(parseInt(pokeNum) + 1);
             }}
           >
             Next &#8194; &#62;

@@ -1,20 +1,23 @@
-import React, { useState, useEffect, createRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./styles/single.css";
 
 export default function Single() {
-  const searchRef = React.createRef();
+  const searchRef = useRef();
   const { number } = useParams();
   const [pokeData, setPokeData] = useState(null);
   const [pokeNum, setPokeNum] = useState();
   const [pokeDesc, setPokeDesc] = useState(null);
 
-  //DOUBLE CLICK NEEDED
   //BUGFIX TRY CATCH SEARCH BAR EMPTY OR WRONG
 
   useEffect(() => {
     fetchData(number ? number : "1");
   }, []);
+
+  useEffect(() => {
+    setPokeNum(pokeData && pokeData.forms[0].url.slice(39, -1));
+  }, [pokeData]);
 
   const getPokeData = async (num) => {
     const request = await fetch("https://pokeapi.co/api/v2/pokemon/" + num);
@@ -33,8 +36,6 @@ export default function Single() {
   const fetchData = (num) => {
     getPokeData(num);
     getPokeDesc(num);
-    setPokeNum(isNaN(num) ? pokeData.forms[0].url.slice(39, -1) : num);
-    console.log(pokeNum);
   };
 
   let currentNum = pokeNum;
@@ -57,7 +58,7 @@ export default function Single() {
           </p>
         </div>
         <div className="prevNext">
-          {currentNum > 1 && (
+          {pokeNum > 1 && (
             <button
               onClick={() => {
                 fetchData(--currentNum);
@@ -78,8 +79,8 @@ export default function Single() {
           <input type="text" ref={searchRef} />
           <button
             onClick={() => {
-              fetchData(searchRef.current.value);
               console.log("click");
+              fetchData(searchRef.current.value);
             }}
           >
             Search

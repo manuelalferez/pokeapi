@@ -9,6 +9,9 @@ export default function Single() {
   const [pokeNum, setPokeNum] = useState();
   const [pokeDesc, setPokeDesc] = useState(null);
 
+  //DOUBLE CLICK NEEDED
+  //BUGFIX TRY CATCH SEARCH BAR EMPTY OR WRONG
+
   useEffect(() => {
     fetchData(number ? number : "1");
   }, []);
@@ -28,9 +31,10 @@ export default function Single() {
   };
 
   const fetchData = (num) => {
-    setPokeNum(num);
     getPokeData(num);
     getPokeDesc(num);
+    setPokeNum(isNaN(num) ? pokeData.forms[0].url.slice(39, -1) : num);
+    console.log(pokeNum);
   };
 
   let currentNum = pokeNum;
@@ -75,6 +79,7 @@ export default function Single() {
           <button
             onClick={() => {
               fetchData(searchRef.current.value);
+              console.log("click");
             }}
           >
             Search

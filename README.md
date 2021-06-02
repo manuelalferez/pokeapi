@@ -5,6 +5,8 @@ App fetching data from [Pokeapi.co](https://pokeapi.co/), using [ReactJS](https:
 ## Active Issues
 
 
-fix CSS
+fix CSS, single page, cleaner
 
 add pokemon type
+
+fix readability by separating JSX components to files

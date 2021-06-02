@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
-import "./styles/single.css";
 
 export default function Single() {
   const searchRef = useRef();

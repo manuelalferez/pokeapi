@@ -14,6 +14,11 @@ body {
   height: 80vh;
 }
 
+.poke_list {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+}
+
 .singleDiv > img {
   width: 25%;
 }
@@ -54,6 +59,13 @@ button:active {
   top: 40vh;
 }
 
+a {
+  font-weight: 550;
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
 a:hover {
   background-color: #f48b29;
 }
@@ -85,9 +97,9 @@ a:hover {
   animation: lds-dual-ring 2.2s linear infinite;
 }
 
-.inputSearch{
+.inputSearch {
   margin: 2em;
-  padding: .5em;
+  padding: 0.5em;
   border: 2px solid #000;
 }
 @keyframes lds-dual-ring {

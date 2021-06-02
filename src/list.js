@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import "./styles/list.css";
 
 export default function List() {
   const { offset } = useParams();

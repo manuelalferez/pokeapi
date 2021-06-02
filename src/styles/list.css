@@ -4,12 +4,12 @@ body {
   padding: 0;
 }
 
-.poke_list{
+.poke_list {
   display: grid;
   grid-template-columns: auto auto auto auto auto;
 }
 
-a{
+a {
   font-weight: 550;
   text-decoration: none;
   color: black;

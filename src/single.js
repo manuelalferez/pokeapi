@@ -17,23 +17,15 @@ export default function Single() {
     setPokeNum(pokeData && pokeData.forms[0].url.slice(39, -1));
   }, [pokeData]);
 
-  const getPokeData = async (num) => {
-    const request = await fetch("https://pokeapi.co/api/v2/pokemon/" + num);
+  const fetch = async (link, num, state) => {
+    const request = await fetch(link + num);
     const json = await request.json();
-    setPokeData(json);
-  };
-
-  const getPokeDesc = async (num) => {
-    const request = await fetch(
-      "https://pokeapi.co/api/v2/pokemon-species/" + num
-    );
-    const json = await request.json();
-    setPokeDesc(json);
+    state(json);
   };
 
   const fetchData = (num) => {
-    getPokeData(num);
-    getPokeDesc(num);
+    fetch("https://pokeapi.co/api/v2/pokemon/", num, setPokeData());
+    fetch("https://pokeapi.co/api/v2/pokemon-species/", num, setPokeDesc());
   };
 
   const handleKeyDown = (event) => {

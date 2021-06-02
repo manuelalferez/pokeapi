@@ -11,9 +11,7 @@ export default function List() {
 
   useEffect(() => {
     offset
-      ? fetchList(
-          "https://pokeapi.co/api/v2/pokemon?offset=" + offset + "&limit=20"
-        )
+      ? fetchList("https://pokeapi.co/api/v2/pokemon?offset=" + offset + "&limit=20")
       : fetchList("https://pokeapi.co/api/v2/pokemon");
   }, []);
 
@@ -43,11 +41,7 @@ export default function List() {
               <div className="lds-dual-ring"></div>
             ) : (
               <img
-                src={
-                  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
-                  number +
-                  ".png"
-                }
+                src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + number + ".png"}
                 alt={""}
               ></img>
             )}
@@ -62,25 +56,25 @@ export default function List() {
 
   const MapList = ({ pokeList }) => {
     const mapList = Object.keys(pokeList).map((i, keyName) => (
-      <Pokemon
-        key={i}
-        pokemon={pokeList[keyName].name}
-        pokeUrl={pokeList[keyName].url}
-      />
+      <Pokemon key={i} pokemon={pokeList[keyName].name} pokeUrl={pokeList[keyName].url} />
     ));
     return <div className="poke_list">{mapList}</div>;
   };
 
   return (
     <div className="container">
-      <button
-        className="side_button"
-        onClick={() => {
-          fetchList(prevPageUrl);
-        }}
-      >
-        Previous
-      </button>
+      <div>
+        {prevPageUrl && (
+          <button
+            className="side_button"
+            onClick={() => {
+              fetchList(prevPageUrl);
+            }}
+          >
+            Previous
+          </button>
+        )}
+      </div>
       <MapList pokeList={pokeList} />
       <button
         className="side_button"

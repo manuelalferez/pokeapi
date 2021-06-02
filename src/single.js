@@ -43,17 +43,8 @@ export default function Single() {
       <div>
         <div className="singleDiv">
           <img src={pokeData && pokeData.sprites.front_default} alt="" />
-          <h1>
-            {pokeData &&
-              `${pokeData.forms[0].url.slice(
-                39,
-                -1
-              )}: ${pokeData.name.toUpperCase()}`}
-          </h1>
-          <p>
-            {pokeDesc &&
-              pokeDesc.flavor_text_entries[1].flavor_text.replace("\f", " ")}
-          </p>
+          <h1>{pokeData && `${pokeData.forms[0].url.slice(39, -1)}: ${pokeData.name.toUpperCase()}`}</h1>
+          <p>{pokeDesc && pokeDesc.flavor_text_entries[1].flavor_text.replace("\f", " ")}</p>
         </div>
         <div className="prevNext">
           {pokeNum > 1 && (
@@ -74,12 +65,7 @@ export default function Single() {
           </button>
         </div>
         <div>
-          <input
-            className="inputSearch"
-            type="text"
-            ref={searchRef}
-            onKeyDown={handleKeyDown}
-          />
+          <input className="inputSearch" type="text" ref={searchRef} onKeyDown={handleKeyDown} />
           <button
             onClick={() => {
               searchRef.current.value && fetchData(searchRef.current.value);

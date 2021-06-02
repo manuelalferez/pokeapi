@@ -43,7 +43,13 @@ export default function Single() {
       <div>
         <div className="singleDiv">
           <img src={pokeData && pokeData.sprites.front_default} alt="" />
-          <h1>{pokeData && pokeData.name.toUpperCase()}</h1>
+          <h1>
+            {pokeData &&
+              `${pokeData.forms[0].url.slice(
+                39,
+                -1
+              )}: ${pokeData.name.toUpperCase()}`}
+          </h1>
           <p>
             {pokeDesc &&
               pokeDesc.flavor_text_entries[1].flavor_text.replace("\f", " ")}

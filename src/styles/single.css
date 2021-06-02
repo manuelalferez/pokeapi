@@ -19,10 +19,6 @@ body {
   grid-template-columns: auto auto auto auto auto;
 }
 
-.singleDiv > img {
-  width: 25%;
-}
-
 button {
   background-color: #b3a125;
   padding: 15px;
@@ -44,6 +40,17 @@ button:active {
   transform: translateY(4px);
 }
 
+a {
+  font-weight: 550;
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+a:hover {
+  background-color: #f48b29;
+}
+
 .list_button {
   padding-top: 1.5em;
   text-align: center;
@@ -59,17 +66,6 @@ button:active {
   top: 40vh;
 }
 
-a {
-  font-weight: 550;
-  text-decoration: none;
-  color: black;
-  font-size: 20px;
-}
-
-a:hover {
-  background-color: #f48b29;
-}
-
 .side_button {
   position: relative;
   background-color: #b3a125;
@@ -78,6 +74,16 @@ a:hover {
 
 .prevNext > button {
   margin: 15px;
+}
+
+.inputSearch {
+  margin: 2em;
+  padding: 0.5em;
+  border: 2px solid #000;
+}
+
+.singleDiv > img {
+  width: 25%;
 }
 
 .lds-dual-ring {
@@ -97,11 +103,6 @@ a:hover {
   animation: lds-dual-ring 2.2s linear infinite;
 }
 
-.inputSearch {
-  margin: 2em;
-  padding: 0.5em;
-  border: 2px solid #000;
-}
 @keyframes lds-dual-ring {
   0% {
     transform: rotate(0deg);

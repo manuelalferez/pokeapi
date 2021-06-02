@@ -29,8 +29,10 @@ export default function Single() {
   };
 
   const handleKeyDown = (event) => {
-    if (event.key === "Enter" && searchRef.current.value)
+    if (event.key === "Enter" && searchRef.current.value) {
       fetchData(searchRef.current.value);
+      searchRef.current.value = "";
+    }
   };
 
   return (
@@ -66,10 +68,16 @@ export default function Single() {
           </button>
         </div>
         <div>
-          <input type="text" ref={searchRef} onKeyDown={handleKeyDown} />
+          <input
+            className="inputSearch"
+            type="text"
+            ref={searchRef}
+            onKeyDown={handleKeyDown}
+          />
           <button
             onClick={() => {
               searchRef.current.value && fetchData(searchRef.current.value);
+              searchRef.current.value = "";
             }}
           >
             Search

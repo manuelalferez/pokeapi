@@ -49,7 +49,7 @@ a {
 
 .listElement:hover {
   background-color: #add8e6;
-  box-shadow:0px 0px 0px 1px black inset;
+  box-shadow: 0px 0px 0px 1px black inset;
 }
 
 .list_button {
@@ -71,6 +71,32 @@ a {
   position: relative;
   background-color: #b3a125;
   top: 40vh;
+}
+
+.arrow_left {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  width: 0;
+  height: 0;
+  position: relative;
+  top: 30vh;
+  border-top: 60px solid transparent;
+  border-bottom: 60px solid transparent;
+  border-right: 60px solid #cc0000;
+}
+
+.arrow_right {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  width: 0;
+  height: 0;
+  position: relative;
+  top: 30vh;
+  border-top: 60px solid transparent;
+  border-bottom: 60px solid transparent;
+  border-left: 60px solid #cc0000;
 }
 
 .prevNext > button {

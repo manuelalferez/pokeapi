@@ -65,24 +65,20 @@ export default function List() {
       <div>
         {prevPageUrl && (
           <button
-            className="side_button"
+            className="arrow_left"
             onClick={() => {
               fetchList(prevPageUrl);
             }}
-          >
-            Previous
-          </button>
+          />
         )}
       </div>
       <MapList pokeList={pokeList} />
       <button
-        className="side_button"
+        className="arrow_right"
         onClick={() => {
           fetchList(nextPageUrl);
         }}
-      >
-        Next
-      </button>
+      />
     </div>
   );
 }

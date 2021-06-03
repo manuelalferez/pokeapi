@@ -34,7 +34,7 @@ export default function List() {
       );
     return (
       <div className="listElement">
-        <Link to={`/single/${number}`}>
+        <Link className="searchRef" to={`/single/${number}`}>
           <div>
             {loading ? (
               <div className="lds-dual-ring"></div>

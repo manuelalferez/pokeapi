@@ -47,8 +47,9 @@ a {
   font-size: 20px;
 }
 
-a:hover {
-  background-color: #f48b29;
+.listElement:hover {
+  background-color: #d05050;
+  box-shadow:0px 0px 0px 1px black inset;
 }
 
 .list_button {
@@ -91,6 +92,7 @@ a:hover {
   width: 80px;
   height: 80px;
 }
+
 .lds-dual-ring:after {
   content: " ";
   display: block;
